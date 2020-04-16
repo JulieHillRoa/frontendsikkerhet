@@ -1,68 +1,57 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#Frontendsikkerhet
+Dette er en samling med oppgaver for å lære om frontendsikkert het og prøve det ut selv.
 
-## Available Scripts
+## Basic setup
+Før vi kommer i gang med oppgavene skal vi sette opp et minimalt oppsett som vi kan bruke for å se sikkerhetshull i praksis. 
+Sørg for at du har node og npm installert (https://nodejs.org/en/download/) og klon dette prosjektet: `git clone https://github.com/JulieHillRoa/frontendsikkerhet.git`. 
+Gå så inn i mappen og kjør `npm i` derretter `npm run start` for å kjøre opp applikasjonen.
 
-In the project directory, you can run:
+Presentasjonen med intro til hvert tema finner du her: https://docs.google.com/presentation/d/12WlGY49Ycj4tZOwHrRAaDTMVd8okkMXZCL7BHFW7XOM/edit?usp=sharing
 
-### `npm start`
+###Utvikling av moderne web applikasjoner
+tekst
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### 🏆Oppgave
+Oppgavetekst
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<details>
+  <summary>🚨Løsningsforslag/Hint</summary>
 
-### `npm test`
+```js
+Hint eller løsningsforslag om vi har noe
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+</details>
+<br/>
 
-### `npm run build`
+###NPM og tredjepart biblioteker
+tekst
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### 🏆Oppgave
+Oppgavetekst
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+<details>
+  <summary>🚨Løsningsforslag/Hint</summary>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```js
+Hint eller løsningsforslag om vi har noe
+```
 
-### `npm run eject`
+</details>
+<br/>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+###Lagring i nettleser
+tekst
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### 🏆Oppgave
+Oppgavetekst
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<details>
+  <summary>🚨Løsningsforslag/Hint</summary>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```js
+Hint eller løsningsforslag om vi har noe
+```
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+</details>
+<br/>
