@@ -1,4 +1,4 @@
-#Frontendsikkerhet
+# Frontendsikkerhet
 Dette er en samling med oppgaver for å lære om frontendsikkert het og prøve det ut selv.
 
 ## Basic setup
@@ -8,7 +8,7 @@ Gå så inn i mappen og kjør `npm i` derretter `npm run start` for å kjøre op
 
 Presentasjonen med intro til hvert tema finner du her: https://docs.google.com/presentation/d/12WlGY49Ycj4tZOwHrRAaDTMVd8okkMXZCL7BHFW7XOM/edit?usp=sharing
 
-###Utvikling av moderne web applikasjoner
+### Utvikling av moderne web applikasjoner
 tekst
 
 #### 🏆Oppgave
@@ -24,7 +24,7 @@ Hint eller løsningsforslag om vi har noe
 </details>
 <br/>
 
-###NPM og tredjepart biblioteker
+### NPM og tredjepart biblioteker
 tekst
 
 #### 🏆Oppgave
@@ -40,7 +40,7 @@ Hint eller løsningsforslag om vi har noe
 </details>
 <br/>
 
-###Lagring i nettleser
+### Lagring i nettleser
 tekst
 
 #### 🏆Oppgave
