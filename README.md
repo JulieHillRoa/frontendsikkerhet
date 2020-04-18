@@ -25,7 +25,11 @@ Hint eller løsningsforslag om vi har noe
 <br/>
 
 ### NPM og tredjepart biblioteker
-tekst
+
+1. Åpne /npm/ in nettleseren og prøv ut løsningen. Ser du noen åpenbare sikkerhetsproblemer i løsningen? Prøv deg litt frem.
+2. Se på kildekoden som ligger under /src/npm/ og vurder innholdet med fokus på sikkerhet
+3. Kjør `npm audit` og se om du klarer å benytte informasjonen til å kjøre et XSS-angrep via nettleseren
+4. Fiks problemet
 
 #### 🏆Oppgave
 Oppgavetekst

@@ -8,3 +8,7 @@ export function loadShoppingCart() {
         JSON.parse(sessionStorage.getItem("cart"))
     );
 }
+
+export function saveCart(cart) {
+    sessionStorage.setItem("cart", JSON.stringify(cart));
+}
