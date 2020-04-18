@@ -68,8 +68,8 @@ fått prøvd seg. Passordet er hemmelig ;)
 
 ```Shell
 # Krypter
-openssl aes-256-cbc -in fil.txt -out fil.enc
+openssl aes-256-cbc -pbkdf2 -in fil.txt -out fil.enc
 
-# Dektrypter
-openssl aes-256-cbc -d -in fil.enc -out fil.txt
+# Dekrypter
+openssl aes-256-cbc -pbkdf2 -d -in fil.enc
 ```
