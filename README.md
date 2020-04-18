@@ -1,5 +1,5 @@
 # Frontendsikkerhet
-Dette er en samling med oppgaver for å lære om frontendsikkert het og prøve det ut selv.
+Dette er en samling med oppgaver for å lære om frontendsikkerthet og prøve det ut selv.
 
 ## Basic setup
 Før vi kommer i gang med oppgavene skal vi sette opp et minimalt oppsett som vi kan bruke for å se sikkerhetshull i praksis. 

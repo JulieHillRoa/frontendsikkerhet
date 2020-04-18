@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import Lagring from "./lagring";
+import Webapp from "./webapp";
+import Npm from "./npm";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <Switch>
+                <Route path="/webapp" component={Webapp}></Route>
+                <Route path="/npm" component={Npm}></Route>
+                <Route path="/lagring" component={Lagring}></Route>
+                <Route path="/">
+                  <ol>
+                    <li><Link to="/webapp">Utvikling av moderne web applikasjoner</Link></li>
+                    <li><Link to="/npm">NPM og tredjeparts biblioteker</Link></li>
+                    <li><Link to="/lagring">Lagring i nettleser</Link></li>
+                  </ol>
+                </Route>
+            </Switch>
+        </Router>
+    );
 }
 
 export default App;
