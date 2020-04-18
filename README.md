@@ -33,7 +33,8 @@ Hint eller løsningsforslag om vi har noe
 5. Fiks problemet og aktiver audit slik at den kjører ved `npm install`
 
 Bonusoppgave 1: Kjør `npm audit` på eget prosjekt og vurder resultatet.
-Bonusoppgave 2: Søk gjerne opp diverse pakker på https://snyk.io/vuln/ se om du finner noe spennende (finner du f.eks. en "Malicious Package" som du kunne ha installert uten å tenke over det).
+
+Bonusoppgave 2: Søk opp pakker på https://snyk.io/vuln/ se om du finner noe spennende (finner du f.eks. en "Malicious Package" som du kunne ha installert uten å tenke over det).
 
 ### Lagring i nettleser
 tekst
