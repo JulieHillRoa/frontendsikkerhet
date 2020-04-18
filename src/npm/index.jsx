@@ -1,35 +1,39 @@
 import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
-import { OrderButton } from "./buttons";
-import { useShoppingCart } from "./cart";
+import { HelpButton } from "./buttons";
+import { useChat } from "./chat";
 
 export default () => {
     const [current, setCurrent] = useState("");
-    const { addToCart, clearCart, cart } = useShoppingCart();
+    const { addMessage, messages } = useChat();
     return (
         <div>
             <h1>NPM og tredjeparts biblioteker</h1>
 
+            <p></p>
+
             <Switch>
-                <Route path="/npm/bestill">
-                    <h2>Kvittering</h2>
-                    <p>Takk for bestillingen.</p>
+                <Route path="/npm/hjelp">
+                    <h2>FAQ</h2>
+
+                    <h3>Hvordan sender jeg meldinger?</h3>
+
+                    <p>Skriv inn melding i feltet og trykk "Send melding".</p>
                 </Route>
                 <Route path="/npm">
-                    <h2>Bestillingsbekreftelse</h2>
+                    <h2>Superchat</h2>
+
+                    <p>En åpen chat-kanal for alle og enhver!</p>
 
                     <div>
                         <div>
                             <input onChange={(e) => setCurrent(e.target.value)}></input>
-                            <button onClick={() => addToCart(current)}>Legg til vare</button>
+                            <button onClick={() => addMessage(current)}>Send melding</button>
                         </div>
-                        <ol>
-                            {cart.items.map((name, i) => (
-                                <li key={i}>{name}</li>
-                            ))}
-                        </ol>
-                        <button onClick={clearCart}>Tøm handlekurv</button>
-                        <OrderButton />
+                        {messages.items.map((name, i) => (
+                            <p key={i}>{name}</p>
+                        ))}
+                        <HelpButton />
                     </div>
                 </Route>
             </Switch>
