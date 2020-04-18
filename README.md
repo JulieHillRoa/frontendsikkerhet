@@ -26,7 +26,7 @@ Hint eller løsningsforslag om vi har noe
 
 ### NPM og tredjepart biblioteker
 
-Denne oppgaven er bygget opp slik at du for hvert steg får mer informasjon som kan brukes til å finne to svakheter i applikasjonen, der begge gir brukere mulighet til å utføre stored XSS-angrep. Se an tiden, ikke bruk for lang tid på å lete i steg 1, hopp videre til neste steg når du setter deg fast.
+Denne oppgaven er bygget opp slik at du for hvert steg får mer informasjon som kan brukes til å finne to svakheter i applikasjonen, der begge gir brukere mulighet til å utføre stored XSS-angrep. Se an tiden, ikke bruk for lang tid på å lete i steg 1, hopp videre til neste steg hvis du setter deg fast.
 
 1. Åpne [/npm/](http://localhost:3000/npm) in nettleseren, prøv ut løsningen, eksperimenter litt for å se om du klarer å lure inn kode via nettleseren.
 2. Let gjennom kildekoden `/src/npm/` for å finne potensielle sikkerhetshull, prøv ut i nettleseren.
