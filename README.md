@@ -9,17 +9,47 @@ Gå så inn i mappen og kjør `npm i` derretter `npm run start` for å kjøre op
 Presentasjonen med intro til hvert tema finner du her: https://docs.google.com/presentation/d/12WlGY49Ycj4tZOwHrRAaDTMVd8okkMXZCL7BHFW7XOM/edit?usp=sharing
 
 ### Utvikling av moderne web applikasjoner
-tekst
+Denne oppgaven går ut på å utforske noen av de sårbare elementene ved utvikling av en webapplikasjon. 
+Oppgavene vil være basert på Reactjs. 
 
-#### 🏆Oppgave
-Oppgavetekst
+Rammeverket er i utgangspunktet ganske sikkert når det gjelder beskyttelse mot XSS-angrep.
+Det er fler tiltak som blir gjort for å hindre angrep, som for eksempel å escape strenger i views variabler automatisk og 
+med JSX sender man en fuksjon som event handler isteden for en streng som kan inneholde ondsinnet kode. 
+```js
+HTML: 
+<button onclick="onButtonClick()">Klikk her</button>
+
+JSX:
+<button onClick={ onButtonClick }>Klikk her</button>
+```
+
+Vi skal nå gå igjennom 4 oppgaver rundt fallgruver som alle webutviklere burde vite om. 
+
+#### 🏆Oppgaver
+1. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: DangerouslySetInnerHTML. 
+Prøv å se om du kan få siden til å kjøre `alert("Hacked")` ved å skrive i input-feltet. Ta en titt på koden i `/webapp/DangerouslySetInnerHTML.jsx`.
+2. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Href. 
+Prøv å se om du kan få siden til å kjøre `alert("Hacked")` ved å skrive i adressefeltet i nettleseren din. Ta en titt på koden i `/webapp/Href.jsx`.
+3. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Eval(). 
+Prøv å se om du kan få siden til å kjøre `alert("Hacked")` ved å skrive i input-feltet. Ta en titt på koden i `/webapp/Eval.jsx`.
+4. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Props. 
+Prøv å se om du kan få siden til å kjøre `alert("Hacked")` ved å skrive i input-feltet. Ta en titt på koden i `/webapp/SpreadProps.jsx`.
 
 <details>
-  <summary>🚨Løsningsforslag/Hint</summary>
+  <summary>🚨Hint</summary>
 
 ```js
-Hint eller løsningsforslag om vi har noe
+DangerouslySetInnerHtml: 
+Hint: Sender du inn en svg setter man i gang en xml-parser, som kan skape trøbbel. Med img-tagen er det og veldig enkelt å trigge <element onerror="ondsinnet kode">
+Én fasit: <img onerror=alert("hacked") src="feil">
 ```
+
+**Kilder:**
+
+For å lære mer om spesifikke tips for å unngå XSS angrep, se: [XSS cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) 
+
+For å lære mer om spesifikke tiltak mot CSRF se: [CSRF cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#javascript-guidance-for-auto-inclusion-of-csrf-tokens-as-an-ajax-request-header)
+
 
 </details>
 <br/>
