@@ -26,24 +26,14 @@ Hint eller løsningsforslag om vi har noe
 
 ### NPM og tredjepart biblioteker
 
-1. Åpne /npm/ in nettleseren og prøv ut løsningen. Ser du noen åpenbare sikkerhetsproblemer i løsningen? Prøv deg litt frem.
-2. Se på kildekoden som ligger under /src/npm/ og vurder innholdet med fokus på sikkerhet
-3. Kjør `npm audit` og se om du klarer å benytte informasjonen til å kjøre et XSS-angrep via nettleseren
-4. Fiks problemet og aktiver audit slik at den kjører ved `npm install`
-5. Bonusoppgave: Kjør `npm audit` på eget prosjekt og søk gjerne opp diverse pakker på https://snyk.io/vuln/, ev. filtrer på npm og se om du finner noe spennende (det kan være interessant å se på "Malicious Package" for å få et inntrykk av hvordan man kan lures til å installere feil pakke).
+1. Åpne [/npm/](http://localhost:3000/npm) in nettleseren og prøv ut løsningen. Ser du noen åpenbare sikkerhetsproblemer? Noe som kan tukles med for å endre oppførsel?
+2. Se over kildekoden som ligger under `/src/npm/` og vurder om det er noe du ville ha påpekt på som problematisk mtp. sikkerhet hvis du kom over tilsvarende i en PR.
+3. Kjør `npm outdated` og se om det er pakker som bør oppdateres. Er dette nok informasjon til å lure inn en kodesnutt på siden uten å endre kildekoden?
+4. Kjør `npm audit` og se om du klarer å benytte informasjonen til å utføre et XSS-angrep
+5. Fiks problemet og aktiver audit slik at den kjører ved `npm install`
 
-#### 🏆Oppgave
-Oppgavetekst
-
-<details>
-  <summary>🚨Løsningsforslag/Hint</summary>
-
-```js
-Hint eller løsningsforslag om vi har noe
-```
-
-</details>
-<br/>
+Bonusoppgave 1: Kjør `npm audit` på eget prosjekt og vurder resultatet.
+Bonusoppgave 2: Søk gjerne opp diverse pakker på https://snyk.io/vuln/ se om du finner noe spennende (finner du f.eks. en "Malicious Package" som du kunne ha installert uten å tenke over det).
 
 ### Lagring i nettleser
 tekst
