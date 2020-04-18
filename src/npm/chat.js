@@ -2,26 +2,26 @@ import { useState, useEffect } from "react";
 import { defaultsDeep } from "lodash";
 
 export function useChat() {
-    const [cart, setCart] = useState({ items: [] });
+    const [messages, setMessages] = useState({ items: [] });
 
     useEffect(() => {
         const fetch = async () => {
-            setCart(await loadMessages());
+            setMessages(await loadMessages());
         };
         fetch();
     }, []);
 
-    useEffect(() => saveMessages(cart), [cart]);
+    useEffect(() => saveMessages(messages), [messages]);
 
     const addToCart = (name) => {
-        setCart({ ...cart, items: [...cart.items, name] });
+        setMessages({ ...messages, items: [...messages.items, name] });
     };
 
     const clearCart = () => {
-        setCart({ ...cart, items: [] });
+        setMessages({ ...messages, items: [] });
     };
 
-    return { addMessage: addToCart, clearCart, messages: cart };
+    return { addMessage: addToCart, clearCart, messages: messages };
 }
 
 async function loadMessages() {
@@ -40,7 +40,7 @@ function saveMessages(cart) {
         method: "POST",
         body: JSON.stringify(cart),
         headers: {
-            "Content-Type": "application/json"
-        }
+            "Content-Type": "application/json",
+        },
     });
 }
