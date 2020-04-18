@@ -33,7 +33,7 @@ Denne oppgaven er bygget opp slik at du for hvert steg får mer informasjon som 
 3. Kjør `npm outdated` og se om det er pakker som bør oppdateres
 4. Kjør `npm audit` og se om du klarer å benytte informasjonen derfra til å utføre et XSS-angrep.
 5. Gå inn på https://snyk.io/vuln/ og søk opp pakkene som brukes i dette prosjektet
-5. Fiks problemet og aktiver audit slik at den kjører ved `npm install`
+5. Fiks problemene du har funnet og aktiver audit slik at den kjører ved `npm install`
 
 Bonusoppgave 1: Kjør `npm audit` på eget prosjekt og vurder resultatet.
 
