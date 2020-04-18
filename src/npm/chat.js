@@ -1,44 +1,39 @@
 import { useState, useEffect } from "react";
 import { defaultsDeep } from "lodash";
 
+const initialState = {
+    messages: [],
+};
+
 export function useChat() {
-    const [messages, setMessages] = useState({ items: [] });
+    const [state, setState] = useState(initialState);
 
     useEffect(() => {
         const fetch = async () => {
-            setMessages(await loadMessages());
+            const d = await loadState();
+            setState(d);
         };
         fetch();
     }, []);
 
-    useEffect(() => saveMessages(messages), [messages]);
-
-    const addToCart = (name) => {
-        setMessages({ ...messages, items: [...messages.items, name] });
+    const addMessage = async (content) => {
+        await saveMessage({ content });
+        setState({ ...state, messages: [...state.messages, { content }] });
     };
-
-    const clearCart = () => {
-        setMessages({ ...messages, items: [] });
-    };
-
-    return { addMessage: addToCart, clearCart, messages: messages };
+    
+    return { addMessage, state };
 }
 
-async function loadMessages() {
-    const cart = await fetch("/api/messages");
-    const json = await cart.json();
-    return defaultsDeep(
-        {
-            items: [],
-        },
-        json
-    );
+async function loadState() {
+    const chat = await fetch("/api/messages");
+    const json = await chat.json();
+    return defaultsDeep({}, initialState, json);
 }
 
-function saveMessages(cart) {
-    fetch("/api/messages", {
+async function saveMessage(message) {
+    await fetch("/api/message", {
         method: "POST",
-        body: JSON.stringify(cart),
+        body: JSON.stringify(message),
         headers: {
             "Content-Type": "application/json",
         },

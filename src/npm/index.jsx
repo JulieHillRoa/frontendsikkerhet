@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
-import { HelpButton } from "./buttons";
+import { HelpButton, Message, MessageInput, SendButton } from "./components";
 import { useChat } from "./chat";
+import "./npm.css";
 
 export default () => {
     const [current, setCurrent] = useState("");
-    const { addMessage, messages } = useChat();
+    const { addMessage, state } = useChat();
+    
+    const items = [ ...state.messages ];
+    items.reverse();
     return (
-        <div>
+        <div className="superchat">
             <h1>NPM og tredjeparts biblioteker</h1>
-
-            <p></p>
 
             <Switch>
                 <Route path="/npm/hjelp">
@@ -27,13 +29,13 @@ export default () => {
 
                     <div>
                         <div>
-                            <input onChange={(e) => setCurrent(e.target.value)}></input>
-                            <button onClick={() => addMessage(current)}>Send melding</button>
+                            <MessageInput onChange={(e) => setCurrent(e.target.value)}></MessageInput>
+                            <SendButton onClick={() => addMessage(current)} />
+                            <HelpButton />
                         </div>
-                        {messages.items.map((name, i) => (
-                            <p key={i}>{name}</p>
+                        {items.map(({content}, i) => (
+                            <Message key={i}>{content}</Message>
                         ))}
-                        <HelpButton />
                     </div>
                 </Route>
             </Switch>

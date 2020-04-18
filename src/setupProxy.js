@@ -10,10 +10,10 @@ module.exports = function (app) {
      * Brukes i npm-oppgave
      */
 
-    let chat = {};
+    let chat = { messages: [] };
 
-    app.post("/api/messages", (req, res) => {
-        chat = req.body;
+    app.post("/api/message", (req, res) => {
+        chat.messages.push(req.body);
         res.send("ok");
     });
 
