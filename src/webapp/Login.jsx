@@ -2,6 +2,6 @@ import React from 'react';
 
 export default () => {
     return (
-        <h2>Props</h2>
+        <div>HACKED!</div>
     )
 }

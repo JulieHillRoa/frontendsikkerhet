@@ -29,19 +29,23 @@ Vi skal nå gå igjennom 4 oppgaver rundt fallgruver som alle webutviklere burde
 1. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: DangerouslySetInnerHTML. 
 Prøv å se om du kan få siden til å kjøre `alert("Hacked")` ved å skrive i input-feltet. Ta en titt på koden i `/webapp/DangerouslySetInnerHTML.jsx`.
 2. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Href. 
-Prøv å se om du kan få siden til å kjøre `alert("Hacked")` ved å skrive i adressefeltet i nettleseren din. Ta en titt på koden i `/webapp/Href.jsx`.
+Prøv å se om du kan få siden til å kjøre `alert("Hacked")` ved å skrive i inputfeltene for hjemmesiden. Ta en titt på koden i `/webapp/Href.jsx`.
 3. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Eval(). 
 Prøv å se om du kan få siden til å kjøre `alert("Hacked")` ved å skrive i input-feltet. Ta en titt på koden i `/webapp/Eval.jsx`.
 4. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Props. 
 Prøv å se om du kan få siden til å kjøre `alert("Hacked")` ved å skrive i input-feltet. Ta en titt på koden i `/webapp/SpreadProps.jsx`.
-
+5. Tabsnapping (vi hacker, du må fikse det)
 <details>
   <summary>🚨Hint</summary>
 
 ```js
 DangerouslySetInnerHtml: 
 Hint: Sender du inn en svg setter man i gang en xml-parser, som kan skape trøbbel. Med img-tagen er det og veldig enkelt å trigge <element onerror="ondsinnet kode">
-Én fasit: <img onerror=alert("hacked") src="feil">
+Én fasit: <img onerror=alert("Hacked!") src="feil">
+
+HREF: 
+Hint: javascript: lar deg sende inne javascript kode som blir trigget når linken blir klikket på
+Én fasit: javascript:alert("Hacked!")
 ```
 
 **Kilder:**
@@ -53,7 +57,8 @@ For å lære mer om spesifikke tiltak mot CSRF se: [CSRF cheat sheet](https://ch
 
 </details>
 <br/>
-
+OBS! Dette er ganske lette oppgaver for de i sikkerhetsfaggruppa. Burde vi anbefale CTF oppgaver? (Det viktigste er jo at de får med seg funksjonene som er sårbare)
+TODO: gjøre om dangerouslySetInnerHtml til å ha f.eks markdown i inputfeltet(mer realistisk?)
 ### NPM og tredjepart biblioteker
 
 Denne oppgaven er bygget opp slik at du for hvert steg får mer informasjon som etterhvert leder deg til to sikkerhetshull som vi har lagt inn i applikasjonen. Begge hull gir brukere mulighet til å utføre stored XSS-angrep. Se an tiden, ikke bruk for lang tid på å lete i steg 1, hopp videre til neste steg hvis du setter deg fast.

@@ -11,7 +11,7 @@ function App() {
                 <Route path="/webapp" component={Webapp}></Route>
                 <Route path="/npm" component={Npm}></Route>
                 <Route path="/lagring" component={Lagring}></Route>
-                <Route path="/">
+                <Route path="/" exact={ true }>
                   <ol>
                     <li><Link to="/webapp">Utvikling av moderne web applikasjoner</Link></li>
                     <li><Link to="/npm">NPM og tredjeparts biblioteker</Link></li>
