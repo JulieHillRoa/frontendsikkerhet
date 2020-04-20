@@ -1,9 +1,9 @@
-import React, {useState} from "react";
-import Href from "./Href";
-import SpreadProps from "./SpreadProps";
-import DangerouslySetInnerHtml from "./DangerouslySetInnerHTML";
-import Eval from "./Eval";
-import Tabsnapping from "./Tabsnapping";
+import React, {useState} from 'react';
+import Href from './Href';
+import SpreadProps from './SpreadProps';
+import DangerouslySetInnerHtml from './DangerouslySetInnerHTML';
+import Eval from './Eval';
+import Tabsnapping from './Tabsnapping';
 
 const EVAL = 'eval';
 const PROPS = 'spareadProps';
@@ -35,21 +35,14 @@ export default () => {
     return (
         <div id="webappBody">
             <h1>Utvikling av moderne web applikasjoner</h1>
-            <ul
-                style={ {
-                    listStyle: 'none',
-                    display: 'flex',
-                    flexDirection: 'row'
-                } }
-            >
+            <ul className="nav">
                 <li><button onClick={ () => setPage(HREF) }>href</button></li>
-                <li><button onClick={ () => setPage(EVAL) }>eval()</button></li>
                 <li><button onClick={ () => setPage(DANGEROUSLY_SET) }>dangerouslySetInnerHTML</button></li>
-                <li><button onClick={ () => setPage(PROPS) }>Spread props</button></li>
                 <li><button onClick={ () => setPage(TABSNAPPING) }>Tab snapping</button></li>
+                <li><button onClick={ () => setPage(EVAL) }>eval()</button></li>
+                <li><button onClick={ () => setPage(PROPS) }>Spread props</button></li>
             </ul>
-
-            { getPage(page)}
+            { getPage(page) }
         </div>
     );
 }

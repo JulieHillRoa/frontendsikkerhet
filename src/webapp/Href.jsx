@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import './webapp.css';
+import { getHrefInfoText } from './infoTexts';
 
 export default () => {
     const [inputText, setIputText] = useState({
@@ -9,19 +11,14 @@ export default () => {
         hjemmesideNavn: 'Min hjemmeside',
     });
     return (
-        <div style={ { margin: '40px'} }>
+        <>
             <h2>Href</h2>
-            <form style={ { marginBottom: '40px' } }>
+            { getHrefInfoText() }
+            <form className="margin-bottom-40">
                 <label htmlFor="navn">Fult navn</label>
                 <input
                     id="navn"
-                    style={ {
-                        display: 'block',
-                        height: '25px',
-                        border: '1px solid #aaa',
-                        borderRadius: '7px',
-                        width: '300px'
-                    } }
+                    className="input"
                     onChange={ (e) => setIputText({ ...inputText, navn: e.target.value }) }
                     value={ inputText.navn }
                     placeholder="Ditt navn"
@@ -29,13 +26,7 @@ export default () => {
                 <label htmlFor="adresse">Adresse</label>
                 <input
                     id="adresse"
-                    style={ {
-                        display: 'block',
-                        height: '25px',
-                        border: '1px solid #aaa',
-                        borderRadius: '7px',
-                        width: '300px'
-                    } }
+                    className="input"
                     onChange={ (e) => setIputText({ ...inputText, adresse: e.target.value }) }
                     value={ inputText.adresse }
                     placeholder="Skriv noe pent"
@@ -43,13 +34,7 @@ export default () => {
                 <label htmlFor="telefon">Telefonnummer</label>
                 <input
                     id="telefon"
-                    style={ {
-                        display: 'block',
-                        height: '25px',
-                        border: '1px solid #aaa',
-                        borderRadius: '7px',
-                        width: '300px'
-                    } }
+                    className="input"
                     onChange={ (e) => setIputText({ ...inputText, telefon: e.target.value }) }
                     value={ inputText.telefon }
                     placeholder="Telefonnummer"
@@ -57,13 +42,7 @@ export default () => {
                 <label htmlFor="hjemmeside">Hjemmeside - navn </label>
                 <input
                     id="hjemmeside"
-                    style={ {
-                        display: 'block',
-                        height: '25px',
-                        border: '1px solid #aaa',
-                        borderRadius: '7px',
-                        width: '300px'
-                    } }
+                    className="input"
                     onChange={ (e) => setIputText({ ...inputText, hjemmesideNavn: e.target.value }) }
                     value={ inputText.hjemmesideNavn }
                     placeholder="adresse til din hjemmeside"
@@ -71,13 +50,7 @@ export default () => {
                 <label htmlFor="hjemmesideAdr">Hjemmeside - adresse</label>
                 <input
                     id="hjemmesideAdr"
-                    style={ {
-                        display: 'block',
-                        height: '25px',
-                        border: '1px solid #aaa',
-                        borderRadius: '7px',
-                        width: '300px'
-                    } }
+                    className="input"
                     onChange={ (e) => setIputText({ ...inputText, hjemmesideAdr: e.target.value }) }
                     value={ inputText.hjemmesideAdr }
                     placeholder="adresse til din hjemmeside"
@@ -88,8 +61,12 @@ export default () => {
                 <strong>Navn: </strong>{ inputText.navn }<br />
                 <strong>Adresse: </strong>{ inputText.adresse }<br />
                 <strong>Telefon: </strong>{ inputText.telefon }<br />
-                <strong>Hjemmeside: </strong><a href={inputText.hjemmesideAdr}>{inputText.hjemmesideNavn}</a><br />
+                <strong>Hjemmeside: </strong>
+
+                <a href={inputText.hjemmesideAdr}>{inputText.hjemmesideNavn}</a>
+
+                <br />
             </div>
-        </div>
+        </>
     )
 }

@@ -1,11 +1,12 @@
 import React from 'react';
+import './webapp.css'
 
 export default () => {
     return (
-        <div style={ { margin: '40px'} }>
+        <>
             <h2>Tabsnapping</h2>
             {/* eslint-disable-next-line */}
-            <a href="http://localhost:3000/webapp" target="_blank">Klikk her!</a>
-        </div>
+            <a href="http://localhost:3000/webapp/eksternt" target="_blank">Klikk her!</a>
+        </>
     )
 }

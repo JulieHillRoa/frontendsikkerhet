@@ -1,31 +1,28 @@
 import React, { useState } from 'react';
-import {getDangerouslySetInnetHtmlInfoText} from './infoTexts';
+import { getDangerouslySetInnetHtmlInfoText } from './infoTexts';
+import './webapp.css';
 
 export default () => {
     const [inputText, setIputText] = useState('');
 
     return (
-        <div style={ { margin: '40px' } }>
+        <>
             <h2>DangerouslySetInnerHTML</h2>
             { getDangerouslySetInnetHtmlInfoText() }
-            <div style={ { display: 'flex', flexDirection: 'row' } }>
+
+            <div className="flexContainer">
                 <textarea
-                    style={ {
-                        height: '700px',
-                        border: '1px solid #aaa',
-                        borderRadius: '7px',
-                        width: '600px',
-                        marginRight: '30px',
-                    } }
+                    className="textArea"
                     onChange={ (e) => setIputText(e.target.value) }
                     value={ inputText }
                     placeholder="Skriv noe HTML og se hvordan siden blir bygget opp"
                 />
                 <div
-                    style={ { height: '700px', width: '600px' } }
+                    className="siteArea"
                     dangerouslySetInnerHTML={ {"__html": inputText } }
                 />
             </div>
-        </div>
+
+        </>
     )
 }
