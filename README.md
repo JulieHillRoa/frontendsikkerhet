@@ -59,9 +59,12 @@ For å lære mer om spesifikke tiltak mot CSRF se: [CSRF cheat sheet](https://ch
 <br/>
 OBS! Dette er ganske lette oppgaver for de i sikkerhetsfaggruppa. Burde vi anbefale CTF oppgaver? (Det viktigste er jo at de får med seg funksjonene som er sårbare)
 TODO: gjøre om dangerouslySetInnerHtml til å ha f.eks markdown i inputfeltet(mer realistisk?)
+
 ### NPM og tredjepart biblioteker
 
-Denne oppgaven er bygget opp slik at du for hvert steg får mer informasjon som etterhvert leder deg til to sikkerhetshull som vi har lagt inn i applikasjonen. Begge hull gir brukere mulighet til å utføre stored XSS-angrep. Se an tiden, ikke bruk for lang tid på å lete i steg 1, hopp videre til neste steg hvis du setter deg fast.
+Denne delen er bygget opp slik at du for hvert steg får mer informasjon som etterhvert leder deg til to sikkerhetshull som vi har lagt inn i applikasjonen. Begge hull gir brukere mulighet til å utføre stored XSS-angrep. Se an tiden, ikke bruk for lang tid på å lete i steg 1, hopp videre til neste steg hvis du setter deg fast.
+
+#### 🏆Oppgaver
 
 1. Åpne [/npm/](http://localhost:3000/npm) in nettleseren, prøv ut løsningen, eksperimenter litt for å se om du klarer å lure inn en kodesnutt
 2. Let gjennom kildekoden `/src/npm/` for å finne potensielle sikkerhetshull
@@ -70,9 +73,55 @@ Denne oppgaven er bygget opp slik at du for hvert steg får mer informasjon som 
 5. Gå inn på https://snyk.io/vuln/ og søk opp pakkene som brukes i dette prosjektet (eller installer `snyk` og kjør `snyk monitor`)
 6. Fiks problemene du har funnet og aktiver audit slik at den kjører ved `npm install`
 
-Bonusoppgave 1: Kjør `npm audit` på eget prosjekt og vurder resultatet.
+<details>
+  <summary>🚨Hint 1</summary>
 
-Bonusoppgave 2: Søk opp pakker på https://snyk.io/vuln/ se om du finner noe spennende (finner du f.eks. en "Malicious Package" som du kunne ha installert uten å tenke over det).
+  Du kan bruke informasjonen fra https://snyk.io/vuln/SNYK-JS-MARKDOWNTOJSX-174624 til å lure inn HTML-kode i meldingsfeltet.
+</details>
+
+<details>
+  <summary>🚨Hint 2</summary>
+
+Det er mulig å legge inn et felt, f.eks. navngitt `href` i prototype for alle objekter ved å benytte svakhet i lodash,
+trykk på lenken du får opp fra `npm audit`.
+</details>
+
+<details>
+  <summary>🚨Hint 3</summary>
+
+Det ryktes at backend på denne applikasjonen ikke har helt optimal validering. Det er lov å kalle API-et fra postman eller curl.
+</details>
+
+<details>
+  <summary>🚨Løsningsforslag 1</summary>
+
+Pakke: markdown-to-jsx
+
+Finn rapportert sikkerhetshull på https://snyk.io/vuln/SNYK-JS-MARKDOWNTOJSX-174624 .
+
+Send inn `<SCRIPT>alert(1)</SCRIPT>` i meldingsfeltet.
+</details>
+
+<details>
+  <summary>🚨Løsningsforslag 2</summary>
+Pakke: lodash
+
+Finn rapportert svakhet med `npm audit` og benytt prototype pollution til å legge inn `href`-verdi.
+
+```Shell
+    curl 'http://localhost:3000/api/message' \
+        --data '{"content": "Trykk på hjelp","constructor":{"prototype":{"href": "javascript:alert(1)"}}}' \
+        --header 'Content-Type: application/json'
+```
+</details>
+
+#### Bonusoppgave 1
+
+Kjør `npm audit` på eget prosjekt og vurder resultatet.
+
+#### Bonusoppgave 2
+
+Søk opp pakker på https://snyk.io/vuln/ se om du finner noe spennende (finner du f.eks. en "Malicious Package" som du kunne ha installert uten å tenke over det).
 
 ### Lagring i nettleser
 tekst
