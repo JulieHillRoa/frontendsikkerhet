@@ -138,16 +138,3 @@ Hint eller løsningsforslag om vi har noe
 
 </details>
 <br/>
-
-## Løsningsforslag
-
-Løsninger per oppgave er kryptert for å unngå at deltakere kommer over løsningen før de har
-fått prøvd seg. Passordet er hemmelig ;)
-
-```Shell
-# Krypter
-openssl aes-256-cbc -pbkdf2 -in fil.txt -out fil.enc
-
-# Dekrypter
-openssl aes-256-cbc -pbkdf2 -d -in fil.enc
-```
