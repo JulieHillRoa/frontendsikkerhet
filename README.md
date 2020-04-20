@@ -41,41 +41,43 @@ Prøv å se om du kan få siden til å kjøre `alert("Hacked")` ved å skrive i 
 
 <details>
   <summary>🚨Hint 1 </summary>
-  `javascript:` lar deg sende inne javascript kode som blir trigget når linken blir klikket på
+  
+  `javascript:` lar deg sende inne javascriptkode som blir trigget når linken blir klikket på.
+  
 </details>
-<br/>
 <details>
   <summary>🚨Løsningsforslag 1 </summary>
-```js
-Én fasit: javascript:alert("Hacked!")
-Dersom man kommer på en side som validerer mot `javascript:` kan man sende inn base64: f.eks "data:text/html;base64,PHNjcmlwdD5hbGVydCgiSGFja2VkISIpOzwvc2NyaXB0Pg=="
-```
+  
+  Én fasit: `javascript:alert("Hacked!")`
+        
+  Dersom man kommer på en side som validerer mot `javascript:` kan man sende inn base64: f.eks 
+  ```js 
+  "data:text/html;base64,PHNjcmlwdD5hbGVydCgiSGFja2VkISIpOzwvc2NyaXB0Pg=="
+  ```
 </details>
-<br/>
-
 <details>
   <summary>🚨Hint 2 </summary>
-  Sender du inn en svg setter man i gang en xml-parser, som kan skape trøbbel. Med img-tagen er det veldig enkelt å trigge `js<element onerror="ondsinnet kode" src="">
+  
+  Sender du inn en svg setter man i gang en xml-parser, som kan skape trøbbel. Med img-tagen er det veldig enkelt å trigge 
+  ```js
+  <element onerror="ondsinnet kode" src="">
+  ```
 </details>
-<br/>
 <details>
   <summary>🚨Løsningsforslag 2 </summary>
-```js
-Én fasit: <img onerror=alert("Hacked!") src="feil">
-```
+  
+Én fasit: `<img onerror=alert("Hacked!") src="feil">`
 </details>
 <br/>
-
 <details>
   <summary>🚨Hint 3 </summary>
+  
   a-tagen har en attributt `rel` hvor du kan definere relasjonen mellom siden og nettsiden det er linket til.
 </details>
-<br/>
 <details>
   <summary>🚨Løsningsforslag 3 </summary>
-```js
-Én fasit: <a src="<urlen>" target="_blank" rel="noopener">Klikk her</a>. Man må gjerne og utbrodere `rel` med "noreferrer" og andre verdier som passer på din lenke.
-```
+  
+Én fasit: ` <a src="<urlen>" target="_blank" rel="noopener">Klikk her</a>.` Man må gjerne også utbrodere `rel` med `"noreferrer"` og andre verdier som passer på din lenke.
 </details>
 <br/>
 
