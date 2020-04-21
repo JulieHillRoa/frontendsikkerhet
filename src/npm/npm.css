@@ -10,15 +10,18 @@ button {
   text-decoration: none;
   display: inline-block;
   color: #000;
-  background: #ddd;
-  border: 1px solid black;
+  background: white;
+  border: none;
   margin-right: 10px;
   vertical-align: middle;
+  border-radius: 4px;
+  box-shadow: 0 0 1px #999;
 }
 
 .button:hover,
 button:hover {
   cursor: pointer;
+  background: #ddd;
 }
 
 .message {

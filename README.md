@@ -80,6 +80,30 @@ Prøv å se om du kan få siden til å kjøre `alert("Hacked")` ved å skrive i 
 Én fasit: ` <a src="<urlen>" target="_blank" rel="noopener">Klikk her</a>.` Man må gjerne også utbrodere `rel` med `"noreferrer"` og andre verdier som passer på din lenke.
 </details>
 <br/>
+<details>
+  <summary>Hint 5 </summary>
+  
+  Det kan se ut som at tekstfeltet laster data fra localStorage. Tekstfeltet er også veldig dynamisk, det ser nesten ut som at man
+  kan sende inn helt vilkårlige props. Det er spesielt en prop som utvikleren er veldig stolt av, hva skjer om den f.eks. endres
+  til å være en `div`? Kan det da være mulig å låne triks fra tidligere oppgaver?
+</details>
+<br/>
+<details>
+  <summary>🚨Løsningsforslag 5 </summary>
+
+    Her er det ingen validering av props lagret i local storage, vi kan f.eks. gi inn i dev console og lagre følgende:
+
+    ```json
+    {  
+        "value": "Oops",
+        "element": "div",
+        "dangerouslySetInnerHTML": { "__html": "<img src='asdfasdf' onerror='alert(1)'>" }
+    }
+    ```
+
+    Ref. https://medium.com/dailyjs/exploiting-script-injection-flaws-in-reactjs-883fb1fe36c1
+</details>
+
 
 **Kilder:**
 
