@@ -97,7 +97,7 @@ Prøv å se om du kan få siden til å kjøre `alert("Hacked")` ved å skrive i 
     {  
         "value": "Oops",
         "element": "div",
-        "dangerouslySetInnerHTML": { "__html": "<img src='asdfasdf' onerror='alert(1)'>" }
+        "dangerouslySetInnerHTML": { "__html": "<img src='asdfasdf' onerror='alert(\"Hacked\")'>" }
     }
     ```
 
