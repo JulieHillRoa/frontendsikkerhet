@@ -81,7 +81,7 @@ Prøv å se om du kan få siden til å kjøre `alert("Hacked")` ved å skrive i 
 </details>
 <br/>
 <details>
-  <summary>Hint 5 </summary>
+  <summary>🚨Hint 5 </summary>
   
   Det kan se ut som at tekstfeltet laster data fra localStorage. Tekstfeltet er også veldig dynamisk, det ser nesten ut som at man
   kan sende inn helt vilkårlige props. Det er spesielt en prop som utvikleren er veldig stolt av, hva skjer om den f.eks. endres
