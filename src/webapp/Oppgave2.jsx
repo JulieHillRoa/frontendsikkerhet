@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getDangerouslySetInnetHtmlInfoText } from './infoTexts';
+import { getOppgave2InfoText } from './infoTexts';
 import './webapp.css';
 
 export default () => {
@@ -7,8 +7,8 @@ export default () => {
 
     return (
         <>
-            <h2>DangerouslySetInnerHTML</h2>
-            { getDangerouslySetInnetHtmlInfoText() }
+            <h2>Oppgave 2</h2>
+            { getOppgave2InfoText() }
 
             <div className="flexContainer">
                 <textarea
@@ -26,3 +26,4 @@ export default () => {
         </>
     )
 }
+

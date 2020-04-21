@@ -2,6 +2,10 @@
     margin: 40px;
 }
 
+.snapping {
+    margin: 40px;
+}
+
 .margin-bottom-40 {
     margin-bottom: 40px;
 }
@@ -50,4 +54,5 @@
     border: 1px solid #aaa;
     border-radius: 7px;
     width: 300px;
+    margin-bottom: 20px;
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Webapp from "./webapp";
 import Npm from "./npm";
-import Snapping from "./eksternt/Snapping";
+import Ekstern from "./eksternt/Ekstern";
 
 function App() {
     return (
@@ -10,7 +10,7 @@ function App() {
             <Switch>
                 <Route path="/webapp" exact={true} component={Webapp}></Route>
                 <Route path="/npm" component={Npm}></Route>
-                <Route path="/webapp/eksternt" component={Snapping}/>
+                <Route path="/webapp/eksternt" component={Ekstern}/>
                 <Route path="/">
                   <ol>
                     <li><Link to="/webapp">Utvikling av moderne web applikasjoner</Link></li>

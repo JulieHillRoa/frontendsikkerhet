@@ -1,4 +1,5 @@
 import React from 'react';
+import '../webapp/webapp.css'
 
 const fakeSite = () => (
     window.opener.document.getElementById("webappBody").innerHTML =
@@ -16,7 +17,7 @@ const fakeSite = () => (
             "<br />" +
             "<br />" +
             "<br />" +
-            "Din oppgave er nå å tette dette sikkerhetshullet. Koden finner du i /webapp/Tabsnapping.jsx" +
+            "Din oppgave er nå å tette dette sikkerhetshullet. Koden finner du i /webapp/Oppgave3.jsx" +
         "</p>" +
     "</div>"
 );
@@ -26,12 +27,12 @@ export default () => {
         fakeSite();
     }
     return (
-        <>
+        <div className="snapping">
             <h1>Ute på nettet</h1>
             <p>La oss nå si at vi har gått til en ekstern side.</p>
             <br/>
             <p>Klikk på tabben til vår orginale side. Har noe skjedd?</p>
-        </>
+        </div>
     );
 }
 

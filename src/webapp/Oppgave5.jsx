@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {} from "./infoTexts";
+import { getOppgave5InfoText } from "./infoTexts";
 
 const loadState = () => {
     const state = window.localStorage.getItem("fancy");
@@ -31,12 +31,17 @@ export default () => {
     }, [value]);
 
     return (
-        <div style={{ margin: "40px" }}>
+        <>
             <h2>Oppgave 5</h2>
-
-            <label for="fancy">Noter navnet ditt her, så husker vi det til neste gang</label>
+            { getOppgave5InfoText() }
+            <label htmlFor="fancy">Noter navnet ditt her, så husker vi det til neste gang</label>
             <br />
-            <FancyInput id="fancy" {...value} onChange={(e) => setValue({ ...value, value: e.target.value })} />
-        </div>
+            <FancyInput
+                className="input"
+                id="fancy"
+                {...value}
+                onChange={(e) => setValue({ ...value, value: e.target.value })}
+            />
+        </>
     );
 };

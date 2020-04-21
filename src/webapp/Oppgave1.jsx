@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './webapp.css';
-import { getHrefInfoText } from './infoTexts';
+import { getOppgave1InfoText } from './infoTexts';
 
 export default () => {
     const [inputText, setIputText] = useState({
@@ -12,8 +12,8 @@ export default () => {
     });
     return (
         <>
-            <h2>Href</h2>
-            { getHrefInfoText() }
+            <h2>Oppgave 1</h2>
+            { getOppgave1InfoText() }
             <form className="margin-bottom-40">
                 <label htmlFor="navn">Fult navn</label>
                 <input
