@@ -12,7 +12,7 @@ export default () => {
     items.reverse();
     return (
         <div className="superchat">
-            <h1>NPM og tredjeparts biblioteker</h1>
+            <h1>NPM og tredjepartsbiblioteker</h1>
 
             <Switch>
                 <Route path="/npm/hjelp">
@@ -26,6 +26,8 @@ export default () => {
                     <h2>Superchat</h2>
 
                     <p>En åpen chat-kanal for alle og enhver!</p>
+
+                    <p>Tips: Du kan bruke **tekst** for å utheve tekst.</p>
 
                     <div>
                         <div>
