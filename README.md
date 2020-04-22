@@ -70,7 +70,7 @@ Prøv å se om du kan få siden til å kjøre `alert("Hacked")`.
   
   Her brukes [dangerouslySetInnerHTML](https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml) til å bytte ut innholdet. 
 
-  Heldigvis vil ikke script-tager bli kjørt hvis man setter de inn med dette attributtet. Det var det første jeg prøvde også. Men det finnes attributter som blir kjørt når spesielle hendelser skjer, vet du om en slikt?
+  Heldigvis vil ikke script-tager bli kjørt hvis man setter de inn med dette attributtet. Det var det første jeg prøvde også. Men det finnes attributter som blir kjørt når spesielle hendelser skjer, vet du om et slikt?
 </details>
 <details>
   <summary>🚨 Løsningsforslag 2 </summary>
