@@ -68,18 +68,9 @@ Prøv å se om du kan få siden til å kjøre `alert("Hacked")`.
 <details>
   <summary>:bulb: Hint 2 </summary>
   
-  &lt;p id=&quot;avsnitt&quot;&gt;
-    Ett avsnitt
-  &lt;/p&gt;
-  <br />
-  Basert på brukers handling kan man bytte innholdet i dette p-elemtet ved hjelp av innerHTML:
-  <br />
-  document.getElementById("avsnitt").innerHTML = "Dette er et annet avsnitt";
-  <br />
-  
-  Ved å sette dangerouslySetInnerHTML-propertien i React vil det si å sette innerHTML og propertien er kalt akkurat dette for en grunn.<br />
-  <br />
-  Er det noen måte å få innholdet man bytter det ut med til å feile slik at man trigger en event handler?
+  Her brukes [dangerouslySetInnerHTML](https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml) til å bytte ut innholdet. 
+
+  Heldigvis vil ikke script-tager bli kjørt hvis man setter de inn med dette attributtet. Det var det første jeg prøvde også. Men det finnes attributter som blir kjørt når spesielle hendelser skjer, vet du om en slikt?
 </details>
 <details>
   <summary>🚨 Løsningsforslag 2 </summary>
