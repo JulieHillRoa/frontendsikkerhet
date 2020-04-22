@@ -80,8 +80,8 @@ Prøv å se om du kan få siden til å kjøre `alert("Hacked")`.
 <br/>
 <details>
   <summary>:bulb: Hint 3 </summary>
-  
-  Kan man definere relasjonen mellom siden og nettsiden det er linket til?
+  Her bruker man target="_blank" for å åpne lenken i en ny tab. Dette gir nettsiden man lenker til mulighet til å kjøre kode på siden som lenket til den ved hjelp av window.opener methoden. 
+  Kan man definere relasjonen mellom siden og nettsiden det er linket til slik at dette ikke er mulig?
 </details>
 <details>
   <summary>🚨 Løsningsforslag 3 </summary>
