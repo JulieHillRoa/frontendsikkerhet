@@ -93,16 +93,22 @@ Ref: https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.h
 </details>
 <br/>
 <details>
-  <summary>:bulb: Hint 4 </summary>
+  <summary>:bulb: Hint 4.1 </summary>
   
-    ```js
-    eval('al' + 'er' + 't(\'' + 'Hacked!' + '\')');
-    
-    om eval kjører her vil den faktisk trigge en alert("Hacked!")
-    ```
-    
+  Her brukes eval til å hente ut verdiene i et objekt. 
+  ```js
+  const getSvaret = () => {
+      input && setSvar(eval('gjest.' + input ))
+  };
+  ```
 Kan du sende inn noe i inputfeltet slik at den fortsetter å lese kode etter at han har funnet eller ikke funnet propertien til gjest?
-    
+</details>
+</details>
+<br/>
+<details>
+  <summary>:bulb: Hint 4.2 </summary>
+  
+Pst. Du husker kanskje at [logiske operatorer i JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators) leses fra venstre til høyre? 
 </details>
 <details>
   <summary>🚨 Løsningsforslag 4 </summary>
