@@ -98,7 +98,7 @@ Ref: https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.h
   Her brukes eval til å hente ut verdiene i et objekt. 
   ```js
   const getSvaret = () => {
-      { input && setSvar(eval('gjest.' + input )) }
+      input && setSvar(eval('gjest.' + input ))
   };
   ```
 Kan du sende inn noe i inputfeltet slik at den fortsetter å lese kode etter at han har funnet eller ikke funnet propertien til gjest?
