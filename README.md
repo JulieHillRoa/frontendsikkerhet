@@ -25,8 +25,8 @@ Denne oppgaven går ut på å utforske noen av de sårbare elementene ved utvikl
 Oppgavene vil være basert på Reactjs, men sikkerhetshullene er ikke nødvendigvis kun tilfelle i React. 
 
 Rammeverket er i utgangspunktet ganske sikkert når det gjelder beskyttelse mot XSS-angrep.
-Det er fler tiltak som blir gjort for å hindre angrep, som for eksempel å escape streng-variabler i views automatisk. Et annet tiltak er at  
-med JSX sender man en fuksjon som event handler isteden for en streng som kan inneholde ondsinnet kode. 
+Det er flere tiltak som blir gjort for å hindre angrep, som for eksempel å escape streng-variabler i views automatisk. Et annet tiltak er at  
+med JSX sender man en funksjon som event handler isteden for en streng som kan inneholde ondsinnet kode. 
 ```js
 HTML: 
 <button onclick="onButtonClick()">Klikk her</button>

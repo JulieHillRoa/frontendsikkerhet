@@ -27,7 +27,7 @@ export const getOppgave2InfoText = () => (
 export const getOppgave4InfoText = () => (
     <div className="infoText">
         Dersom man har funksjoner eller utrykk skrevet i streng kan man bruke funksjonen eval() for å evaluere dette.
-        eval() kan brukes til å deserialisere data, utføre mattematiske funksjoner med mer.
+        eval() kan brukes til å deserialisere data, utføre matematiske funksjoner med mer.
 
         <p>
             Vi har fått besøk av en mystisk gjest. Du kan spørre personen om <strong>navn</strong>, <strong>yrke</strong>, <strong>adresse</strong> og <strong>alder</strong>.
