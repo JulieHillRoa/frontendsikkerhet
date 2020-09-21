@@ -1,16 +1,16 @@
-# Frontendsikkerhet
-Dette er en samling med oppgaver for å lære om frontendsikkerthet og selv kjenne på farene.
+# Frontend security
+This is a collection of exercises to learn about front-end security.
 
 ## Basic setup
-Før vi kommer i gang med oppgavene skal vi sette opp et minimalt oppsett som vi kan bruke for å se sikkerhetshull i praksis. 
+Before we get started with the tasks, we will prepare a minimal setup that we can use to see security vulnerabilities in practice.
 
-Sørg for at du har node og npm installert (https://nodejs.org/en/download/) og klon dette prosjektet: 
+Make sure you have node and npm installed (https://nodejs.org/en/download/) and clone this project:
 
 ```
 git clone https://github.com/JulieHillRoa/frontendsikkerhet.git
 ```
 
-Gå så inn i mappen, installer npm pakkene og start applikasjonen:
+Install the npm packages and start the application:
 
 ```
 cd frontendsikkerhet
@@ -18,15 +18,14 @@ npm install
 npm start
 ```
 
-Presentasjonen med intro til hvert tema finner du her: https://docs.google.com/presentation/d/12WlGY49Ycj4tZOwHrRAaDTMVd8okkMXZCL7BHFW7XOM/edit?usp=sharing
+[Presentation can be found here](https://docs.google.com/presentation/d/12WlGY49Ycj4tZOwHrRAaDTMVd8okkMXZCL7BHFW7XOM/edit?usp=sharing)
 
-## Utvikling av moderne web applikasjoner
-Denne oppgaven går ut på å utforske noen av de sårbare elementene ved utvikling av en webapplikasjon. 
-Oppgavene vil være basert på Reactjs, men sikkerhetshullene er ikke nødvendigvis kun tilfelle i React. 
+## Development of modern web applications
+In this section, you will explore some of the risks involved in developing a web application.
+The tasks will be based on React, but the security issues are not necessarily restricted to the React library.
 
-Rammeverket er i utgangspunktet ganske sikkert når det gjelder beskyttelse mot XSS-angrep.
-Det er flere tiltak som blir gjort for å hindre angrep, som for eksempel å escape streng-variabler i views automatisk. Et annet tiltak er at  
-med JSX sender man en funksjon som event handler isteden for en streng som kan inneholde ondsinnet kode. 
+Just by using a library like React, we have prevented many common XSS attacks. Several measures are taken to prevent attacks,
+such as escaping string variables in views by default.
 ```js
 HTML: 
 <button onclick="onButtonClick()">Klikk her</button>
@@ -35,86 +34,87 @@ JSX:
 <button onClick={ onButtonClick }>Klikk her</button>
 ```
 
-Vi skal nå gå igjennom 5 oppgaver rundt fallgruver som webutviklere burde vite om. 
+We will now go through 5 tasks related to security risks that web developers should know about.
 
-### 🏆 Oppgaver
-Koden finner du i `src/webapp`. Bruk Chrome for disse oppgavene:
+### 🏆 Assignments
+The code can be found in `src / webapp`. Use Chrome for these tasks:
 
-1. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Oppgave1 og følg teksten på siden.
-2. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Oppgave2 og følg teksten på siden. 
-3. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Oppgave3. Følg lenken og oppgave teksten. 
-Ta en titt på koden i `/webapp/Oppgave3.jsx` – her er det din jobb å fikse sikkerhetshullet.
-4. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Oppgave4 og følg teksten på siden. 
-5. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Oppgave5. 
-Prøv å se om du kan få siden til å kjøre `alert("Hacked")`.
+1. Open [/webapp/](http://localhost:3000/webapp) in your browser, click on Oppgave1 and follow the instructions.
+2. Open [/webapp/](http://localhost:3000/webapp) in your browser, click on Oppgave2 and follow the instructions. 
+3. Open [/webapp/](http://localhost:3000/webapp) in your browser, click on Oppgave3. Click the link and follow the instructions.
+Look at the source code in `/webapp/Oppgave3.jsx` – here it's your job to fix the security hole.
+4. Open [/webapp/](http://localhost:3000/webapp) in your browser, click on Oppgave4 and follow the instructions. 
+5. Open [/webapp/](http://localhost:3000/webapp) in your browser, click on Oppgave5. 
+Try to see if you can get the page to execute a snippet `alert("Hacked")`.
 
 <details>
   <summary>:bulb: Hint 1 </summary>
   
-  Ikke forvent at alert-koden blir kjørt før linken er klikket på. Er det noen måte å kjøre javascript-kode på når du er inne i en a-tags href-attributt?
+  Do not expect the alert code to be executed until the link is clicked. Is there any way to run javascript code by manipulating an a tags href attribute?
   
 </details>
 <details>
-  <summary>🚨 Løsningsforslag 1 </summary>
-  
-  Én fasit: `javascript:alert("Hacked!")`
-        
-  Dersom man kommer på en side som validerer mot `javascript:` kan man sende inn base64: f.eks `<script>alert("Hacked!");</script>` encodet:
-  ```js  
-  data:text/html;base64,YWxlcnQoImhhY2tlZCEiKQ==
-  ```
+  <summary>🚨 Solution 1 </summary>
+  Enter `javascript:alert("Hacked!")` into the `href` attribute.
 </details>
 <br/>
 <details>
   <summary>:bulb: Hint 2 </summary>
   
-  Her brukes [dangerouslySetInnerHTML](https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml) til å bytte ut innholdet. 
+  Observe that [dangerouslySetInnerHTML](https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml) is used to
+  render user provided content. 
 
-  Heldigvis vil ikke script-tager bli kjørt hvis man setter de inn med dette attributtet. Det var det første jeg prøvde også. Men det finnes attributter som blir kjørt når spesielle hendelser skjer, vet du om et slikt?
+  Fortunately, script tags will not be executed if you insert them with this attribute. That was the first thing I tried too.
+  But there are attributes that can execute code when certain events happen, could that be possible in this case?
 </details>
 <details>
-  <summary>🚨 Løsningsforslag 2 </summary>
+  <summary>🚨 Solution 2 </summary>
   
-Én fasit: `<img onerror=alert("Hacked!") src="feil">`
+  Enter `<img onerror=alert("Hacked!") src="feil">` into the text area.
 </details>
 <br/>
 <details>
   <summary>:bulb: Hint 3 </summary>
-  Her bruker man target="_blank" for å åpne lenken i en ny tab. Dette gir nettsiden man lenker til mulighet til å kjøre kode på siden som lenket til den ved hjelp av window.opener methoden. 
-  Kan man definere relasjonen mellom siden og nettsiden det er linket til slik at dette ikke er mulig?
+  Here you use target = "_ blank" to open the link in a new tab. This gives the website you are linking to the opportunity
+  to run code on the page that linked to it using the window.opener method. Is it possible to define the relationship
+  between the page and the website it is linked to in a way that prevents this feature?
 </details>
 <details>
-  <summary>🚨 Løsningsforslag 3 </summary>
+  <summary>🚨 Solution 3 </summary>
   
-  `rel`-attributtet er viktig å sette på en lenke. Dette er egenskapen som bestemmer relasjonen mellom de to sidene det linkes mellom.
-Én fasit: ` <a src="<urlen>" target="_blank" rel="noopener">Klikk her</a>.` Man må gjerne også utbrodere `rel` med `"noreferrer"` og andre verdier som passer på din lenke.
+  The `rel` attribute defines the relationship between a linked resource and the current document. To disable the `window.opener`
+  feature, you can add `rel="noopener"` to the `a` tag. In addition to `noopener`, you may want to look into other values such as
+  `noreferrer` to further restrict the relationship.
 
-Ref: https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#tabnabbing
+  Ref: https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#tabnabbing
 </details>
 <br/>
 <details>
   <summary>:bulb: Hint 4.1 </summary>
   
-  Her brukes eval til å hente ut verdiene i et objekt. 
+  Eval is used to extract the values of an object.
+
+  
   ```js
   const getSvaret = () => {
       input && setSvar(eval('gjest.' + input ))
   };
   ```
-Kan du sende inn noe i inputfeltet slik at den fortsetter å lese kode etter at han har funnet eller ikke funnet propertien til gjest?
+
+  Can you submit something in the input field so that it continues to read code after it has found
+  or not found the guest's property?
 </details>
 </details>
 <br/>
 <details>
   <summary>:bulb: Hint 4.2 </summary>
   
-Pst. Du husker kanskje at [logiske operatorer i JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators) leses fra venstre til høyre? 
+  [Logical operators in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators) are executed from left to right. 
 </details>
 <details>
-  <summary>🚨 Løsningsforslag 4 </summary>
+  <summary>🚨 Solution 4 </summary>
   
-Dersom man velger en property som finnes kan man skrive inn: `navn && alert("hacked!")`
-eventuelt kan du skrive: `hvaduvil || alert("hacked!")`
+If you choose a property that exists, you use the AND operator: `navn && alert("hacked!")`, otherwise you can use the OR operator: `hvaduvil || alert("hacked!")`.
     
   Ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#Never_use_eval!
 </details>
@@ -122,14 +122,14 @@ eventuelt kan du skrive: `hvaduvil || alert("hacked!")`
 <details>
   <summary>:bulb: Hint 5 </summary>
   
-  Det kan se ut som at tekstfeltet laster data fra localStorage. Tekstfeltet er også veldig dynamisk, det ser nesten ut som at man
-  kan sende inn helt vilkårlige props. Det er spesielt en prop som utvikleren er veldig stolt av, hva skjer om den f.eks. endres
-  til å være en `div`? Kan det da være mulig å låne triks fra tidligere oppgaver?
+  It looks like the text field is loading data from `localStorage`. The text field is also very dynamic, it almost looks like you
+  can submit completely arbitrary props. The developer is very proud of a certain feature, would it be possible to render a `div`
+  instead of an input field? If so, maybe you can borrow some tricks from previous tasks?
 </details>
 <details>
-  <summary>🚨 Løsningsforslag 5 </summary>
+  <summary>🚨 Solution 5 </summary>
 
-Her er det ingen validering av props lagret i local storage, vi kan f.eks. gi inn i dev console og lagre følgende:
+There is no validation of props stored in local storage, we can use the dev console to save the following in local storage:
 
 ```json
 {  
@@ -142,68 +142,72 @@ Her er det ingen validering av props lagret i local storage, vi kan f.eks. gi in
 Ref. https://medium.com/dailyjs/exploiting-script-injection-flaws-in-reactjs-883fb1fe36c1
 </details>
 
-### Bonusoppgave 1
-Sjekk hobbyprosjekt eller jobbprosjekt om noen av disse sårbarhetene finnes.
+### Bonus assignment 1
+Go through one of your own projects and see if you can find any of these vunlerabilities.
 
-### Bonusoppgave 2
-Gå inn på [Hacker101](https://ctf.hacker101.com/ctf) og jobb med en CTF etter ditt nivå. Gjerne hvor skills er *web*. 
+### Bonus assignment 2
+Go to [Hacker101](https://ctf.hacker101.com/ctf) and work with a CTF appropriate for your level (select assignments marked with skills *web*).
+
 
 **Kilder:**
 
-For å lære mer om spesifikke tips for å unngå XSS angrep, se: [XSS cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) 
-
-For å lære mer om spesifikke tiltak mot CSRF se: [CSRF cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#javascript-guidance-for-auto-inclusion-of-csrf-tokens-as-an-ajax-request-header)
-
-For å lære mer om sikkerthet i HTML5 se: [HTML5 security cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html)
+- [XSS cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) 
+- [CSRF cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#javascript-guidance-for-auto-inclusion-of-csrf-tokens-as-an-ajax-request-header)
+- [HTML5 security cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html)
 
 
 ## NPM og tredjepart biblioteker
 
-Denne delen er bygget opp slik at du for hvert steg får mer informasjon som etterhvert leder deg til to sikkerhetshull som vi har lagt inn i applikasjonen. Begge hull gir brukere mulighet til å utføre stored XSS-angrep. Se an tiden, ikke bruk for lang tid på å lete i steg 1, hopp videre til neste steg hvis du setter deg fast.
+This section is structured so that each step will give you more information that eventually will lead you to two vulnerabilities that we have added to the application. Both holes allow users to perform stored XSS attacks. Keep track of your time, do not spend too long on step 1 or any other step, jump to the next step if you get stuck. Each step can be regarded as a hint, making the task of finding these vulnerabilities easier as you progress.
 
-### 🏆 Oppgaver
+### 🏆 Assignments
 
-1. Åpne [/npm/](http://localhost:3000/npm) in nettleseren, prøv ut løsningen, eksperimenter litt for å se om du klarer å lure inn en kodesnutt
-2. Let gjennom kildekoden `/src/npm/` for å finne potensielle sikkerhetshull
-3. Kjør `npm outdated` og se om det er pakker som bør oppdateres
-4. Kjør `npm audit` og se om du klarer å benytte informasjonen derfra til å utføre et XSS-angrep.
-5. Gå inn på https://snyk.io/vuln/ og søk opp pakkene som brukes i dette prosjektet (eller installer `snyk` og kjør `snyk monitor`)
-6. Fiks problemene du har funnet og aktiver audit slik at den kjører ved `npm install`
+1. Open [/npm/] (http://localhost:3000/npm) in your browser, try out the solution, experiment to see if you can trick the site to run a code snippet
+2. Browse the source code at `/src/npm /` to find potential security holes
+3. Run `npm outdated` to see if there are packages that should be updated (do not update the packages)
+4. Run `npm audit` to see if get any useful information that may help you carry out an XSS attack.
+5. Go to https://snyk.io/vuln/ and search for the packages used in this project (or install `snyk` and run` snyk monitor`)
+6. Fix the issaues you found and activate the audit so that it runs at `npm install`
 
 <details>
   <summary>:bulb: Hint 1</summary>
 
-  Du kan bruke informasjonen fra https://snyk.io/vuln/SNYK-JS-MARKDOWNTOJSX-174624 til å lure inn HTML-kode i meldingsfeltet.
+  You can use the information from  https://snyk.io/vuln/SNYK-JS-MARKDOWNTOJSX-174624 to inject HTML code into the message field.
 </details>
 
 <details>
   <summary>:bulb: Hint 2</summary>
 
-Det er mulig å legge inn et felt, f.eks. navngitt `href` i prototype for alle objekter ved å benytte svakhet i lodash,
-trykk på lenken du får opp fra `npm audit`.
+It is possible to add a field (e.g. `href`) to the prototype of all objects using a weakness in lodash. Click on the link you get from `npm audit` to see
+an example. 
 </details>
 
 <details>
   <summary>:bulb: Hint 3</summary>
 
-Det ryktes at backend på denne applikasjonen ikke har helt optimal validering. Det er lov å kalle API-et fra postman eller curl.
+It is rumored that the backend of this application is lacking a good validation strategy. It is allowed to call the API from using curl (or a gui-tool like postman).
 </details>
 
 <details>
-  <summary>🚨 Løsningsforslag 1</summary>
+  <summary>🚨 Solution 1</summary>
 
 Pakke: markdown-to-jsx
 
-Finn rapportert sikkerhetshull på https://snyk.io/vuln/SNYK-JS-MARKDOWNTOJSX-174624 .
+Find reported vulnerabilities https://snyk.io/vuln/SNYK-JS-MARKDOWNTOJSX-174624 .
 
-Send inn `<SCRIPT>alert(1)</SCRIPT>` i meldingsfeltet.
+When this task was first created, the vulnerability was not reported by `npm audit` but it was available at snyk. One of the
+main points of this task was that vulnerabilites may not be detected by your preferred vulnerability database, even if they are
+reported elsewhere. If you worked on this task before `npm` updated their databse, `npm audit` would not have given you
+any useful information.
+
+Solution: Enter `<SCRIPT>alert(1)</SCRIPT>` into the text area.
 </details>
 
 <details>
-  <summary>🚨 Løsningsforslag 2</summary>
+  <summary>🚨 Solution 2</summary>
 Pakke: lodash
 
-Finn rapportert svakhet med `npm audit` og benytt prototype pollution til å legge inn `href`-verdi.
+Find reported vulnerability using `npm audit` and use prototype pollution to add the `href` attribute to all objects.
 
 ```Shell
     curl 'http://localhost:3000/api/message' \
@@ -212,10 +216,10 @@ Finn rapportert svakhet med `npm audit` og benytt prototype pollution til å leg
 ```
 </details>
 
-### Bonusoppgave 1
+### Bonus assignment 1
 
-Kjør `npm audit` på eget prosjekt og vurder resultatet.
+Run `npm audit` on your own project and evaluate the result.
 
-### Bonusoppgave 2
+### Bonus assignment 2
 
-Søk opp pakker på https://snyk.io/vuln/ se om du finner noe spennende (finner du f.eks. en "Malicious Package" som du kunne ha installert uten å tenke over det).
+Search for packages at https://snyk.io/vuln/ to see if you find something exciting.
