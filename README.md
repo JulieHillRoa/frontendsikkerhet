@@ -56,7 +56,7 @@ Key take-away fra ALLE oppgavene: Ikke stol på brukerne og ikke stol på bruker
   <img onerror=alert("Hacked!") src="feil">
   ``` og etterlatt den slik: 
   ```js
-  <img  src="feil">
+  <img src="feil">
   ```
 </details>
   
@@ -70,6 +70,8 @@ Key take-away fra ALLE oppgavene: Ikke stol på brukerne og ikke stol på bruker
   <details>
   <summary>Klarte du å få applikasjonen til å kjøre scriptet?</summary>
   Her bruker man localStorage. Dette kan være et nyttig verktøy å bruke, men det er veldig lett å manipulere. Hvem som helst kan manipulere localStoragen om man har tilgang til browser-vinduet. Det er derfor viktig å gjøre tiltak som escaping og encoding på denne dataen før man tar den i bruk. 
+    
+    Et annet stort sikkerhetshull i denne oppgaven er bruken av spread props (...props). Det vil si at man bare sender det som ligger i props nedover treet i steden for å hente ut spesifikke properties man trenger i den spesifikke komponenten. Dette gjør det mulig å sende inn denne komponenten som tar i bruk dangerouslySetInnerHTML.
   </details>
 
 <details>
