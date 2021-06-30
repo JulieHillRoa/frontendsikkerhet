@@ -18,8 +18,6 @@ npm install
 npm start
 ```
 
-Presentasjonen med intro til hvert tema finner du her: https://docs.google.com/presentation/d/12WlGY49Ycj4tZOwHrRAaDTMVd8okkMXZCL7BHFW7XOM/edit?usp=sharing
-
 ## Utvikling av moderne web applikasjoner
 Denne oppgaven går ut på å utforske noen av de sårbare elementene ved utvikling av en webapplikasjon. 
 Oppgavene vil være basert på Reactjs, men sikkerhetshullene er ikke nødvendigvis kun tilfelle i React. 
@@ -51,13 +49,19 @@ Key take-away fra ALLE oppgavene: Ikke stol på brukerne og ikke stol på bruker
 2. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Oppgave2 og følg teksten på siden. 
 <details>
   <summary>Klarte du å få applikasjonen til å kjøre scriptet?</summary>
-  I likhet med oppgave 1 hjelper React oss med å escape og encode enkelte tegn og input som f.eks <script>-tags. Fordi dangerouslySetInnerHTML setter input direkte på DOMen er det likevel ikke alt React hjelper oss med: Som f.eks events på HTML-attributter. Man skal aldri stole på brukerinput og man burde generelt tenke seg om flere ganger før man bruker denne funksjonen eller lar brukere manipulere DOM'en direkte. En måte å beskytte seg litt mer fra angrep er å Sanatize dataen før den blir eksekvert. Dette finnes det forskjellige pakker som hjelper deg å gjøre. Blandt annet DOMPurify som i vårt eksempel ville fjernet `onerror=alert("Hacked!")` delen av
-  ```
-  <img onerror=alert("Hacked!") src="feil">
-  ``` og etterlatt den slik: 
-  ```js
-  <img src="feil">
-  ```
+  I likhet med oppgave 1 hjelper React oss med å escape og encode enkelte tegn og input som f.eks <script>-tags. Fordi dangerouslySetInnerHTML setter input direkte på DOMen er det likevel ikke alt React hjelper oss med: Som f.eks events på HTML-attributter. Man skal aldri stole på brukerinput og man burde generelt tenke seg om flere ganger før man bruker denne funksjonen eller lar brukere manipulere DOM'en direkte. En måte å beskytte seg litt mer fra angrep er å Sanatize dataen før den blir eksekvert. Dette finnes det forskjellige pakker som hjelper deg å gjøre.
+Blandt annet DOMPurify som i vårt eksempel ville fjernet 
+  
+  `onerror=alert("Hacked!")` 
+  
+  delen av 
+   
+  `<img onerror=alert("Hacked!") src="feil">`
+  
+og etterlatt den slik: 
+   
+  `<img src="feil">`
+ 
 </details>
   
 3. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Oppgave3 og følg teksten på siden. 
@@ -70,8 +74,8 @@ Key take-away fra ALLE oppgavene: Ikke stol på brukerne og ikke stol på bruker
   <details>
   <summary>Klarte du å få applikasjonen til å kjøre scriptet?</summary>
   Her bruker man localStorage. Dette kan være et nyttig verktøy å bruke, men det er veldig lett å manipulere. Hvem som helst kan manipulere localStoragen om man har tilgang til browser-vinduet. Det er derfor viktig å gjøre tiltak som escaping og encoding på denne dataen før man tar den i bruk. 
-    
-    Et annet stort sikkerhetshull i denne oppgaven er bruken av spread props (...props). Det vil si at man bare sender det som ligger i props nedover treet i steden for å hente ut spesifikke properties man trenger i den spesifikke komponenten. Dette gjør det mulig å sende inn denne komponenten som tar i bruk dangerouslySetInnerHTML.
+  
+  Et annet stort sikkerhetshull i denne oppgaven er bruken av spread props (...props). Det vil si at man bare sender det som ligger i props nedover treet i steden for å hente ut spesifikke properties man trenger i den spesifikke komponenten. Dette gjør det mulig å sende inn denne komponenten som tar i bruk dangerouslySetInnerHTML.
   </details>
 
 <details>
@@ -175,8 +179,8 @@ Denne delen er bygget opp slik at du for hvert steg får mer informasjon som ett
 
 ### 🏆 Oppgaver
 
-1. Åpne [/npm/](http://localhost:3000/npm) in nettleseren, prøv ut løsningen, eksperimenter litt for å se om du klarer å lure inn en kodesnutt
-2. Let gjennom kildekoden `/src/npm/` for å finne potensielle sikkerhetshull
+1. Åpne [/npm/](http://localhost:3000/npm) in nettleseren, prøv ut løsningen, eksperimenter litt for å se om du klarer å lure inn en kodesnutt (kjørt en alert("Hacked")
+2. Let gjennom kildekoden `/src/npm/` for å finne potensielle sikkerhetshull. Ta en ekstra kikk på pakker man tar i bruk.
 3. Kjør `npm outdated` og se om det er pakker som bør oppdateres
 4. Kjør `npm audit` og se om du klarer å benytte informasjonen derfra til å utføre et XSS-angrep.
 5. Gå inn på https://snyk.io/vuln/ og søk opp pakkene som brukes i dette prosjektet (eller installer `snyk` og kjør `snyk monitor`)
