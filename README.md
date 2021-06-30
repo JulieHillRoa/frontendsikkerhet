@@ -45,7 +45,7 @@ Når du har utført en oppgave se info om problemet før du hopper videre til ne
 1. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Oppgave1 og følg teksten på siden.
 <details>
   <summary>Klarte du å få applikasjonen til å kjøre scriptet?</summary>
-  Som du sikkert opplevde går det ikke ann å skrive alert("hacked") direkte i feltene. Dette er fordi React escaper input og tolker det som tekst isteden for   kjørbar kode. Dette beskytter oss på god vei mot onsinnede som prøver å utnytte våre inputfelt. Det man derimot ikke får like mye beskyttelse mot er å ta i bruk brukerinput rett i enkelte html-atributter som blir eksekvert når man klikker på elementet. 
+  Som du sikkert opplevde går det ikke ann å skrive alert("hacked") direkte i feltene. Dette er fordi React escaper input og tolker det som tekst isteden for   kjørbar kode. Dette beskytter oss på god vei mot onsinnede som prøver å utnytte våre inputfelt. Det man derimot ikke får like mye beskyttelse mot er å ta i bruk brukerinput rett i enkelte html-atributter som blir eksekvert når man klikker på elementet. I tilfelle hvor man får kjørt en alert("hacked") er ikke alert med en ufarlig streng ondsinnet i seg selv. Poenget er at får du kjørt en alert får du kjørt mye annen skummelt js. 
 </details>
   
 2. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Oppgave2 og følg teksten på siden. 
