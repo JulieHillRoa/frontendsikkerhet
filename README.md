@@ -38,10 +38,21 @@ JSX:
 Vi skal nå gå igjennom 5 oppgaver rundt fallgruver som webutviklere burde vite om. 
 
 ### 🏆 Oppgaver
-Koden finner du i `src/webapp`. Bruk Chrome for disse oppgavene:
+Koden finner du i `src/webapp`, dersom du står fast finner du hint og fasit lenger ned på siden. 
+Bruk Chrome for disse oppgavene.
+Når du har utført en oppgave se info om problemet før du hopper videre til neste oppgave.
 
 1. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Oppgave1 og følg teksten på siden.
+<details>
+  <summary>Klarte du å få applikasjonen til å kjøre scriptet?</summary>
+  Som du sikkert opplevde går det ikke ann å skrive alert("hacked") direkte i feltene. Dette er fordi React escaper input og tolker det som tekst isteden for   kjørbar kode. Dette beskytter oss på god vei mot onsinnede som prøver å utnytte våre inputfelt. Det man derimot ikke får like mye beskyttelse mot å ta i bruk brukerinput rett enkelte html-atributter som blir eksekvert når man klikker på elementet. 
+</details>
+  
 2. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Oppgave2 og følg teksten på siden. 
+<details>
+  <summary>Klarte du å få applikasjonen til å kjøre scriptet?</summary>
+  I likhet med oppgave 1 hjelper React oss med å escape og encode enkelte tegn og input som f.eks <script>-tags. Fordi dangerouslySetInnerHtml setter input direkte på domen er det likevel ikke alt React hjelper oss med: Som f.eks events på HTML-attributter. Man skal aldri stole på brukerinput og man brude generelt tenke seg om flere ganger før man bruker denne funksjonen eller lar brukere manipulere DOM'en direkte. En måte å beskytte seg litt mer fra angrep er å Sanatize dataen før den blir eksekvert. Dette finnes det forskjellige pakker som hjelper deg å gjøre. Blandt annet DOMPurify som i vårt eksempeø ville fjernet `onerror=alert("Hacked!")` delen av  `<img onerror=alert("Hacked!") src="feil">` og etterlatt den slik: `<img src="feil">`
+</details>
 3. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Oppgave3. Følg lenken og oppgave teksten. 
 Ta en titt på koden i `/webapp/Oppgave3.jsx` – her er det din jobb å fikse sikkerhetshullet.
 4. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Oppgave4 og følg teksten på siden. 
