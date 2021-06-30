@@ -1,40 +1,47 @@
-import React, { useState } from 'react';
-import { getOppgave4InfoText } from './infoTexts';
-import './webapp.css';
+import React, { useState, useEffect } from "react";
+import { getOppgave5InfoText } from "./infoTexts";
+
+const loadState = () => {
+    const state = window.localStorage.getItem("fancy");
+    return state ? JSON.parse(state) : { value: "" };
+};
+
+const saveState = (state) => {
+    window.localStorage.setItem("fancy", JSON.stringify(state));
+};
+
+/**
+ * This is my super flexible input field, it can be configured as any element you want! E.g.
+ *
+ * <FancyInput element="textarea" value="Look, a text area!" />
+ * <FancyInput element="input" value="Also, a normal input" />
+ * <FancyInput element={MyCustomElement} value="With a custom component" />
+ *
+ * It's simply Amazing!
+ */
+function FancyInput({ element: Element = "input", ...other }) {
+    return <Element {...other}></Element>;
+}
 
 export default () => {
-    const [input, setInput] = useState('');
-    const [svar, setSvar] = useState('');
-    // eslint-disable-next-line
-    const gjest = {
-        navn: 'Jeg går under mange navn. Blandt disse finner du Harald V, Harald Rex pg Kong Harald.',
-        alder: 'Jeg er 83år p.t',
-        yrke: 'Jeg er din konge',
-        adresse: 'Adressen min er Slottsplassen 1, 0010 Oslo.. Altså på slottet.',
-    };
+    const [value, setValue] = useState(loadState());
 
-    const getSvaret = () => {
-        // eslint-disable-next-line
-        { input && setSvar(eval('gjest.' + input )) }
-    };
+    useEffect(() => {
+        saveState(value);
+    }, [value]);
 
     return (
         <>
             <h2>Oppgave 4</h2>
-            { getOppgave4InfoText() }
-
-            <input
+            { getOppgave5InfoText() }
+            <label htmlFor="fancy">Noter navnet ditt her, så husker vi det til neste gang</label>
+            <br />
+            <FancyInput
                 className="input"
-                onChange={ (e) => setInput(e.target.value) }
-                value={ input }
-                placeholder="Hva lurer du på om meg?"
+                id="fancy"
+                {...value}
+                onChange={(e) => setValue({ ...value, value: e.target.value })}
             />
-            <button type="button" onClick={ getSvaret }>Spør</button>
-            <strong>Svaret er:</strong>
-            { svar }
-
         </>
-
-    )
-}
-
+    );
+};

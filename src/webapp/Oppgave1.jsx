@@ -63,7 +63,7 @@ export default () => {
                 <strong>Telefon: </strong>{ inputText.telefon }<br />
                 <strong>Hjemmeside: </strong>
 
-                <a href={inputText.hjemmesideAdr}>{inputText.hjemmesideNavn}</a>
+                <a href={inputText.hjemmesideAdr}> Min hjemmeside </a>
 
                 <br />
             </div>
