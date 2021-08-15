@@ -1,5 +1,6 @@
 # Frontendsikkerhet
 Dette er en samling med oppgaver for å lære om frontendsikkerthet og selv kjenne på farene.
+Presentasjon tilhørende workshopen kan du finne her: https://docs.google.com/presentation/d/1KuSQ_mHXdbo8a52P6HKayrbymYorcrh3/edit?usp=sharing&ouid=118167277495517818275&rtpof=true&sd=true
 
 ## Basic setup
 Før vi kommer i gang med oppgavene skal vi sette opp et minimalt oppsett som vi kan bruke for å se sikkerhetshull i praksis. 
