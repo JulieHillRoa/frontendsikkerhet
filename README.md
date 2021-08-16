@@ -96,6 +96,9 @@ og etterlatt den slik:
   ```js  
   data:text/html;base64,YWxlcnQoImhhY2tlZCEiKQ==
   ```
+Edit: De nyeste versjonene av nettleserne har nå satt en stopper for at man kan navigere til data-url'er. 
+  Selv om de nyeste nettleserversjonene kommer med fler sikkerhetstiltak mot sikkerhetshull, forteller alternativet med base64 at det finnes farer selv med valideringer.
+  Om man validerer mot spesifikke ting (f.eks sjekk på "javascript" i start av url) for å beskytte seg selv, kan en angriper muligens finne andre måter å oppnå det samme. Det er derfor alltid bedre å spesifisere hva som er lov enn å spesifisere hva som ikke er lov.
 </details>
 <br/>
 <details>
