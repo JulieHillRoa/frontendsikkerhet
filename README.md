@@ -37,7 +37,7 @@ JSX:
 Vi skal nå gå igjennom 4 oppgaver rundt fallgruver som webutviklere burde vite om. 
 
 ### 🏆 Oppgaver
-Koden finner du i `src/webapp`, dersom du står fast finner du hint lengre ned på siden, du kan bruke google eller selvfølgelig rekke opp en hånd for hjelp. Fasit eller løsningsforslag finnes også sammen med hintene. 
+Koden finner du i `src/webapp`, les over koden til oppgaven og se om du finner noen måter å "hacke" den på. Dersom du står fast finner du hint lengre ned på siden, du kan bruke google eller selvfølgelig rekke opp en hånd for hjelp. Fasit eller løsningsforslag finnes også sammen med hintene. 
 Når du har utført en oppgave se info om problemet før du hopper videre til neste oppgave.
 Key take-away fra ALLE oppgavene: Ikke stol på brukerne og ikke stol på brukerinput.
 
