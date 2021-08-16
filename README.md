@@ -66,6 +66,7 @@ og etterlatt den slik:
   `<img src="feil">`
  
 </details>
+2b. Installer og implementer DOMpurify i koden til oppgave 2 og se hvordan markup som blir skrevet inn i textArea vil bli endret etter en vask (Sanatizing).
   
 3. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Oppgave3 og følg teksten på siden. 
   <details>
