@@ -43,13 +43,13 @@ Key take-away fra ALLE oppgavene: Ikke stol på brukerne og ikke stol på bruker
 
 1. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Oppgave1 og følg teksten på siden.
 <details>
-  <summary>Klarte du å få applikasjonen til å kjøre scriptet?</summary>
+  <summary>🕵️ Klarte du å få applikasjonen til å kjøre scriptet?</summary>
   Som du sikkert opplevde går det ikke ann å skrive alert("hacked") direkte i feltene. Dette er fordi React escaper input og tolker det som tekst isteden for   kjørbar kode. Dette beskytter oss på god vei mot onsinnede som prøver å utnytte våre inputfelt. Det man derimot ikke får like mye beskyttelse mot er å ta i bruk brukerinput rett i enkelte html-atributter som blir eksekvert når man klikker på elementet. I tilfeller hvor man får kjørt en alert("hacked") er ikke alert med en ufarlig streng ondsinnet i seg selv, poenget her er at dersom du får kjørt en alert får du kjørt mye annen skummelt JavaScript og kan i praksis ta ned hele nettlesere. 
 </details>
   
 2. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Oppgave2 og følg teksten på siden. 
 <details>
-  <summary>Klarte du å få applikasjonen til å kjøre scriptet?</summary>
+  <summary>🕵️ Klarte du å få applikasjonen til å kjøre scriptet?</summary>
   I likhet med oppgave 1 hjelper React oss med å escape og encode enkelte tegn og input som f.eks <script>-tags. Fordi dangerouslySetInnerHTML setter input direkte på DOMen er det likevel ikke alt React hjelper oss med: Som f.eks events på HTML-attributter. Man skal aldri stole på brukerinput og man burde generelt tenke seg om flere ganger før man bruker denne funksjonen eller lar brukere manipulere DOM'en direkte. 
   
 En måte å beskytte seg litt mer fra angrep er å Sanatize dataen før den blir eksekvert. Dette finnes det forskjellige pakker som hjelper deg å gjøre.
@@ -71,13 +71,13 @@ og etterlatt den slik:
   
 3. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Oppgave3 og følg teksten på siden. 
   <details>
-  <summary>Klarte du å få applikasjonen til å kjøre scriptet?</summary>
+  <summary>🕵️ Klarte du å få applikasjonen til å kjøre scriptet?</summary>
   I javascript finnes det en funksjon: eval(). Denne evaluerer koden som blir sendt inn som også vil si at koden blir kjørt. Ved å gjøre en logisk operasjon her kan man også få kjørt ondsinnet kode noe som gjør at det kan være stor fare for et XSS-angrep. Det vil derfor være lurt å finne andre alternativer til å evaluere koden - ikke bruk eval()
 </details>
   
 4. Åpne [/webapp/](http://localhost:3000/webapp) in nettleseren, klikk på knappen: Oppgave4. Prøv å se om du kan få siden til å kjøre `alert("Hacked")`.
   <details>
-  <summary>Klarte du å få applikasjonen til å kjøre scriptet?</summary>
+  <summary>🕵️ Klarte du å få applikasjonen til å kjøre scriptet?</summary>
   Her bruker man localStorage. Dette kan være et nyttig verktøy å bruke, men det er veldig lett å manipulere. Hvem som helst kan manipulere localStoragen om man har tilgang til browser-vinduet. Det er derfor viktig å gjøre tiltak som escaping og encoding på denne dataen før man tar den i bruk. 
   
   Et annet stort sikkerhetshull i denne oppgaven er bruken av spread props (...props). Det vil si at man bare sender det som ligger i props nedover treet i steden for å hente ut spesifikke properties man trenger i den spesifikke komponenten. Dette gjør det mulig å sende inn komponenten i vårt eksempel som tar i bruk dangerouslySetInnerHTML.
