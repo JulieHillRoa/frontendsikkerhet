@@ -7,7 +7,7 @@
     "@testing-library/react": "^11.0.4",
     "@testing-library/user-event": "^12.1.5",
     "lodash": "^4.17.0",
-    "markdown-to-jsx": "^6.9.0",
+    "markdown-to-jsx": "^7.4.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
